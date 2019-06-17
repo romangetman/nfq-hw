@@ -28,6 +28,10 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    utils:
+      class: App\Service\Utils
+      arguments: ["@service_container"]
+      public: true
     admin.user:
       class: App\Admin\UserAdmin
       arguments: [~, App\Document\User, ~]
@@ -40,4 +44,3 @@ services:
       tags:
         - { name: sonata.admin, manager_type: doctrine_mongodb, group: admin, label: Groups }
       public: true
-
