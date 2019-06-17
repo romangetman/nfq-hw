@@ -19,6 +19,13 @@ final class GroupAdmin extends AbstractAdmin
 //        '_sort_by' => 'name',
     ];
 
+    protected function configureBatchActions($actions)
+    {
+        unset($actions['delete']);
+
+        return $actions;
+    }
+
     protected function configureDatagridFilters(DatagridMapper $datagridMapper): void
     {
         $datagridMapper
